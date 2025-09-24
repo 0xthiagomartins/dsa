@@ -11,10 +11,12 @@ dsa/
 ├── search/
 │   ├── Main.java
 │   ├── main.py
+│   ├── main.js
 │   └── README.md
 ├── sorting/
 │   ├── Main.java
 │   ├── main.py
+│   ├── main.js
 │   └── README.md
 └── ...
 ```
@@ -25,7 +27,7 @@ dsa/
 - [x] **Search** - Multiple search algorithms comparison
   - Linear Search: O(n) time, O(1) space
   - Binary Search: O(log n) time, O(1) space (iterative)
-  - Implementations: Java, Python
+  - Implementations: Java, Python, JavaScript
 
 ### Sorting
 - [ ] **Sorting** - Multiple sorting algorithms comparison
@@ -50,7 +52,7 @@ dsa/
 
 - [x] Java
 - [x] Python
-- [ ] JavaScript
+- [x] JavaScript
 - [ ] Rust
 - [ ] Go
 - [ ] C++

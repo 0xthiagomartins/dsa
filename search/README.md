@@ -129,3 +129,14 @@ java Main
 cd search
 python main.py
 ```
+
+### JavaScript
+```bash
+cd search
+node main.js
+```
+
+Or from the project root:
+```bash
+npm run search
+```
