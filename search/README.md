@@ -1,15 +1,45 @@
 # Search Algorithms
 
-Collection of different search algorithms to find elements in arrays, each with different time and space complexities.
+Collection of search algorithms to find elements in arrays, organized by learning priority.
 
 ## Problem Statement
 
-Given an array and a target element, find the index of the target element in the array. Return -1 if the element is not found.
+Given an array and a target element, find the index of the target element. Return -1 if not found.
 
-## Implementations
+## Algorithms by Learning Priority
 
-### 1. Linear Search
+### Foundation (Current)
+1. **Linear Search** - O(n) time, O(1) space
+   - **Use when**: Unsorted arrays, small datasets, one-time searches
+   - **Don't use when**: Large sorted arrays, frequent searches
 
+2. **Binary Search** - O(log n) time, O(1) space
+   - **Use when**: Sorted arrays, large datasets, frequent searches
+   - **Don't use when**: Unsorted arrays, small datasets
+
+### Intermediate (Next to Learn)
+3. **Jump Search** - O(√n) time, O(1) space
+   - **Use when**: Large sorted arrays, limited random access
+   - **Don't use when**: Small arrays, unsorted data
+
+4. **Exponential Search** - O(log n) time, O(1) space
+   - **Use when**: Unbounded arrays, very large datasets
+   - **Don't use when**: Small arrays, known array size
+
+5. **Interpolation Search** - O(log log n) average, O(n) worst case
+   - **Use when**: Very large arrays, uniformly distributed data
+   - **Don't use when**: Non-uniform data, small arrays
+
+### Advanced (Later)
+6. **Ternary Search** - O(log₃ n) time, O(1) space
+7. **Fibonacci Search** - O(log n) time, O(1) space
+8. **Hash-based Search** - O(1) average, O(n) space
+9. **Tree-based Search** - O(log n) time, O(log n) space
+10. **Graph Search** - O(V + E) time, O(V) space
+
+## Current Implementations
+
+### Linear Search
 ```
 LINEAR_SEARCH(arr, target):
     FOR i = 0 TO length(arr) - 1:
@@ -18,17 +48,10 @@ LINEAR_SEARCH(arr, target):
     RETURN -1
 ```
 
-**Characteristics:**
-- Works on any array (sorted or unsorted)
-- Simple and straightforward
-- Checks every element sequentially
-
-### 2. Binary Search
-
+### Binary Search
 ```
 BINARY_SEARCH(arr, target):
-    left = 0
-    right = length(arr) - 1
+    left = 0, right = length(arr) - 1
     
     WHILE left <= right:
         mid = left + (right - left) / 2
@@ -43,100 +66,22 @@ BINARY_SEARCH(arr, target):
     RETURN -1
 ```
 
-**Characteristics:**
-- Requires sorted array
-- Divides search space in half each iteration
-- More efficient for large datasets
-- Uses constant space (iterative implementation)
-
 ## Complexity Comparison
 
-| Algorithm | Time Complexity | Space Complexity | Requirements |
-|-----------|----------------|------------------|--------------|
-| Linear Search | O(n) | O(1) | None |
-| Binary Search | O(log n) | O(1) | Sorted array |
+| Algorithm | Best | Average | Worst | Space | Requirements |
+|-----------|------|---------|-------|-------|--------------|
+| Linear | Ω(1) | Θ(n) | O(n) | O(1) | None |
+| Binary | Ω(1) | Θ(log n) | O(log n) | O(1) | Sorted |
+| Jump | Ω(1) | Θ(√n) | O(√n) | O(1) | Sorted |
+| Exponential | Ω(1) | Θ(log n) | O(log n) | O(1) | Sorted |
+| Interpolation | Ω(1) | Θ(log log n) | O(n) | O(1) | Sorted, uniform |
+| Hash-based | Ω(1) | Θ(1) | O(n) | O(n) | Hash table |
+| Tree-based | Ω(1) | Θ(log n) | O(log n) | O(log n) | Balanced tree |
+| Graph (BFS/DFS) | Ω(1) | Θ(V + E) | O(V + E) | O(V) | Graph structure |
 
-## When to Use Each Algorithm
+## Key Insights
 
-### Use Linear Search when:
-- ✅ Array is not sorted
-- ✅ Array is small
-- ✅ You need to search only once
-- ✅ Simplicity is more important than performance
-
-### Use Binary Search when:
-- ✅ Array is sorted
-- ✅ Array is large
-- ✅ You need to perform multiple searches
-- ✅ Performance is critical
-
-## Performance Analysis
-
-### Time Complexity Explanation
-
-**Linear Search - O(n):**
-- In the worst case, we need to check every element
-- For an array of size n, we might need n comparisons
-
-**Binary Search - O(log n):**
-- Each iteration eliminates half of the remaining elements
-- For an array of size n, we need at most log₂(n) comparisons
-- Example: For 1000 elements, linear search might need 1000 comparisons, binary search needs at most 10
-
-### Space Complexity Explanation
-
-**Linear Search - O(1):**
-- Uses only a constant amount of extra space (loop variable)
-
-**Binary Search - O(1):**
-- Uses only a constant amount of extra space (left, right, mid variables)
-
-## Example Execution
-
-```
-Array: [1, 3, 5, 7, 9, 11, 13, 15, 17, 19]
-Target: 7
-
-Linear Search:
-- Check arr[0] = 1 ≠ 7
-- Check arr[1] = 3 ≠ 7
-- Check arr[2] = 5 ≠ 7
-- Check arr[3] = 7 = 7 ✓
-Result: 3 (4 comparisons)
-
-Binary Search:
-- left=0, right=9, mid=4, arr[4]=9 > 7
-- left=0, right=3, mid=1, arr[1]=3 < 7
-- left=2, right=3, mid=2, arr[2]=5 < 7
-- left=3, right=3, mid=3, arr[3]=7 = 7 ✓
-Result: 3 (4 comparisons)
-
-Note: In this small example, both algorithms need the same number of comparisons,
-but binary search becomes much more efficient with larger arrays.
-```
-
-## Running the Code
-
-### Java
-```bash
-cd search
-javac Main.java
-java Main
-```
-
-### Python
-```bash
-cd search
-python main.py
-```
-
-### JavaScript
-```bash
-cd search
-node main.js
-```
-
-Or from the project root:
-```bash
-npm run search
-```
+- **Interpolation Search** has the best average case (Θ(log log n)) but worst worst case (O(n))
+- **Hash-based Search** has the best average case (Θ(1)) but requires O(n) space
+- **Binary Search** is the most practical for general use cases
+- **Linear Search** is the simplest and works on any data

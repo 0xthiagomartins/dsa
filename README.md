@@ -12,11 +12,13 @@ dsa/
 │   ├── Main.java
 │   ├── main.py
 │   ├── main.js
+│   ├── main.rs
 │   └── README.md
 ├── sorting/
 │   ├── Main.java
 │   ├── main.py
 │   ├── main.js
+│   ├── main.rs
 │   └── README.md
 └── ...
 ```
@@ -27,7 +29,7 @@ dsa/
 - [x] **Search** - Multiple search algorithms comparison
   - Linear Search: O(n) time, O(1) space
   - Binary Search: O(log n) time, O(1) space (iterative)
-  - Implementations: Java, Python, JavaScript
+  - Implementations: Java, Python, JavaScript, Rust
 
 ### Sorting
 - [ ] **Sorting** - Multiple sorting algorithms comparison
@@ -53,7 +55,7 @@ dsa/
 - [x] Java
 - [x] Python
 - [x] JavaScript
-- [ ] Rust
+- [x] Rust
 - [ ] Go
 - [ ] C++
 - [ ] C#
@@ -65,3 +67,37 @@ This collection serves as a personal learning tool. When studying a new programm
 2. Study the pseudocode and complexity analysis in the README
 3. Implement it in your target language
 4. Add the implementation to the algorithm's directory
+
+## Running the Code
+
+### Java
+```bash
+cd search
+javac Main.java
+java Main
+```
+
+### Python
+```bash
+cd search
+python main.py
+```
+
+### JavaScript
+```bash
+cd search
+node main.js
+```
+
+### Rust
+```bash
+cd search
+rustc main.rs
+./main
+```
+
+Or using Cargo (if you have a Cargo.toml):
+```bash
+cd search
+cargo run
+```
